@@ -16,5 +16,5 @@ func main() {
 	route.API(router)
 
 	// Start and run the server
-	router.Run(":3000")
+	router.Run(":1234")
 }

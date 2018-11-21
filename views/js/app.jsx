@@ -121,7 +121,7 @@ class LoggedIn extends React.Component {
     }
 
     serverRequest() {
-        $.get("http://localhost:3000/api/invoices", res => {
+        $.get("http://localhost:1234/api/invoices", res => {
             this.setState({
                 invoices: res
             });
@@ -174,7 +174,7 @@ class Invoice extends React.Component {
 
     serverRequest(invoice) {
         $.post(
-            "http://localhost:3000/api/invoices/like/" + invoice.id, {
+            "http://localhost:1234/api/invoices/like/" + invoice.id, {
                 like: 1
             },
             res => {

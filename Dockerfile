@@ -1,0 +1,16 @@
+FROM golang:1.11
+
+ENV GIN_MODE ""
+ENV AUTH0_API_CLIENT_SECRET ""
+ENV AUTH0_CLIENT_ID ""
+ENV AUTH0_DOMAIN ""
+ENV AUTH0_API_AUDIENCE ""
+
+WORKDIR /go/src/app
+COPY . .
+
+RUN go get -d -v ./...
+RUN go install -v ./...
+
+EXPOSE 1234
+CMD ["app"]
