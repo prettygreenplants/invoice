@@ -160,6 +160,7 @@ class Invoice extends React.Component {
         super(props);
         this.state = {
             liked: "",
+            likes: this.props.invoice.likes,
             invoices: []
         };
         this.like = this.like.bind(this);
@@ -177,9 +178,13 @@ class Invoice extends React.Component {
                 like: 1
             },
             res => {
-                console.log("res... ", res);
                 this.setState({
                     liked: "Liked!",
+                    likes: res.map(function(row){
+                        if (invoice.id == row.id) {
+                            return row.likes
+                        }
+                    }),
                     invoices: res
                 });
                 this.props.invoices = res;
@@ -199,7 +204,7 @@ class Invoice extends React.Component {
                         {this.props.invoice.desc}
                     </div>
                     <div className="panel-footer">
-                        {this.props.invoice.likes} Likes
+                        {this.state.likes} Likes
                         &nbsp;
                         <a onClick={this.like} className="btn btn-default">
                             <span className="glyphicon glyphicon-thumbs-up" />

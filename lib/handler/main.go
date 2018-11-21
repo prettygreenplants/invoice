@@ -42,10 +42,10 @@ func LikeInvoice(c *gin.Context) {
 			}
 		}
 
-		// return a pointer to the updated jokes list
+		// return a pointer to the updated invoice list
 		c.JSON(http.StatusOK, &invoices)
 	} else {
-		// Joke ID is invalid
+		// Invoice ID is invalid
 		c.AbortWithStatus(http.StatusNotFound)
 	}
 }
